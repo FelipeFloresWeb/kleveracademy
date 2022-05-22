@@ -21,6 +21,7 @@ KLEVER_ACADEMY_ENDPOINT = getenv('KLEVER_ACADEMY_ENDPOINT')
 KLEVER_ACADEMY_PORT = getenv('KLEVER_ACADEMY_PORT')
 SECRET_KEY = getenv('SECRET_KEY')
 USER = getenv('USER')
+ALLOWED_HOSTS_ENV = getenv('ALLOWED_HOSTS')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,7 +37,7 @@ SECRET_KEY = 'django-insecure-$p85e+-xm!z&zn)!-utqhvqhis4e2$0-$#j_xcg)1arpg7((ef
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ALLOWED_HOSTS_ENV]
 
 
 # Application definition

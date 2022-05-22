@@ -11,6 +11,15 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv()
+
+KLEVER_ACADEMY_ENDPOINT = getenv('KLEVER_ACADEMY_ENDPOINT')
+KLEVER_ACADEMY_PORT = getenv('KLEVER_ACADEMY_PORT')
+PASSWORD = getenv('PASSWORD')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,21 +86,14 @@ WSGI_APPLICATION = 'kleverAcademyBack.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'kleverAcademy',
+        'USER': 'kleveracademy',
+        'PASSWORD': PASSWORD,
+        'HOST': KLEVER_ACADEMY_ENDPOINT,
+        'PORT': KLEVER_ACADEMY_PORT,
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'project_name',
-#         'USER': 'user_name',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
 
 
 # Password validation

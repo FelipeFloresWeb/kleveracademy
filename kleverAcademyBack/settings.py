@@ -19,6 +19,7 @@ load_dotenv()
 KLEVER_ACADEMY_ENDPOINT = getenv('KLEVER_ACADEMY_ENDPOINT')
 KLEVER_ACADEMY_PORT = getenv('KLEVER_ACADEMY_PORT')
 PASSWORD = getenv('PASSWORD')
+USER = getenv('USER')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,9 +87,9 @@ WSGI_APPLICATION = 'kleverAcademyBack.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kleverAcademy',
-        'USER': 'kleveracademy',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': USER,
+        'USER': USER,
         'PASSWORD': PASSWORD,
         'HOST': KLEVER_ACADEMY_ENDPOINT,
         'PORT': KLEVER_ACADEMY_PORT,

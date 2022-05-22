@@ -19,7 +19,7 @@ load_dotenv()
 
 KLEVER_ACADEMY_ENDPOINT = getenv('KLEVER_ACADEMY_ENDPOINT')
 KLEVER_ACADEMY_PORT = getenv('KLEVER_ACADEMY_PORT')
-PASSWORD = getenv('PASSWORD')
+SECRET_KEY = getenv('SECRET_KEY')
 USER = getenv('USER')
 
 
@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': USER,
         'USER': USER,
-        'PASSWORD': PASSWORD,
+        'PASSWORD': SECRET_KEY,
         'HOST': KLEVER_ACADEMY_ENDPOINT,
         'PORT': KLEVER_ACADEMY_PORT,
     }

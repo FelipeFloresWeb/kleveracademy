@@ -1,8 +1,6 @@
-import dotenv
 import environ
+from kleverAcademyBack.settings.base import *
 
-
-dotenv.load_dotenv(dotenv.find_dotenv())
 
 env = environ.Env()
 

@@ -1,19 +1,16 @@
 from os import getenv
 import dotenv
+import environ
+
 
 dotenv.load_dotenv(dotenv.find_dotenv())
 
-DEBUG = getenv('DEBUG', False)
+env = environ.Env()
 
-SECRET_KEY = getenv('SECRET_KEY')
+DEBUG = env.bool('DEBUG', False)
+
+SECRET_KEY = env('SECRET_KEY')
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': getenv('USER'),
-        'USER': getenv('USER'),
-        'PASSWORD': getenv('PASSWORD'),
-        'HOST': getenv('KLEVER_ACADEMY_RDS'),
-        'PORT': getenv('PORT'),
-    }
+    'default': env.db(),
 }

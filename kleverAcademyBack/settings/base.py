@@ -29,7 +29,8 @@ SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['intense-ridge-56931.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['intense-ridge-56931.herokuapp.com',
+                 '127.0.0.1', 'klever-academy.netlify.app']
 
 # Application definition
 

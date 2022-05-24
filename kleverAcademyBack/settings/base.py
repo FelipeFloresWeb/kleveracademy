@@ -13,11 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 from os import getenv
-import environ
 
-env = environ.Env()
-
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -27,13 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$p85e+-xm!z&zn)!-utqhvqhis4e2$0-$#j_xcg)1arpg7((ef'
+SECRET_KEY = getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['intense-ridge-56931.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -84,7 +79,14 @@ WSGI_APPLICATION = 'kleverAcademyBack.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db(),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': getenv('USER'),
+        'USER': getenv('USER'),
+        'PASSWORD': getenv('PASSWORD'),
+        'HOST': getenv('KLEVER_ACADEMY_RDS'),
+        'PORT': getenv('PORT'),
+    }
 }
 
 

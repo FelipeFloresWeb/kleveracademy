@@ -1,15 +1,16 @@
-import environ
+from os import getenv
 
-from kleverAcademyBack.settings.base import *
+DEBUG = getenv('DEBUG', False)
 
-env = environ.Env()
-
-DEBUG = env.bool('DEBUG', False)
-
-SECRET_KEY = env('SECRET_KEY')
-
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+SECRET_KEY = getenv('SECRET_KEY')
 
 DATABASES = {
-    "default": env.db(),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': getenv('USER'),
+        'USER': getenv('USER'),
+        'PASSWORD': getenv('PASSWORD'),
+        'HOST': getenv('KLEVER_ACADEMY_RDS'),
+        'PORT': getenv('PORT'),
+    }
 }

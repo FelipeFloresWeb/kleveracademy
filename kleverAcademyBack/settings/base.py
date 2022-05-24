@@ -29,8 +29,6 @@ SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['intense-ridge-56931.herokuapp.com',
-#                  '127.0.0.1', 'klever-academy.netlify.app']
 ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -43,9 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'kleverApp.apps.KleverappConfig',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -87,10 +85,10 @@ WSGI_APPLICATION = 'kleverAcademyBack.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': getenv('USER'),
+        'NAME': getenv('NAME'),
         'USER': getenv('USER'),
         'PASSWORD': getenv('PASSWORD'),
-        'HOST': getenv('KLEVER_ACADEMY_RDS'),
+        'HOST': getenv('HOST'),
         'PORT': getenv('PORT'),
     }
 }

@@ -81,12 +81,6 @@ WSGI_APPLICATION = 'kleverAcademyBack.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'kleverAcademy',
-        # 'USER': 'kleverAcademy',
-        # 'PASSWORD': '123159asdqwe',
-        # 'HOST': 'kleveracademy.c3p5lalp6fjs.us-east-1.rds.amazonaws.com',
-        # 'PORT': '5432',
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': getenv('USER'),
         'USER': getenv('USER'),

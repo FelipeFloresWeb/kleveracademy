@@ -1,4 +1,3 @@
-from os import getenv
 import dotenv
 import environ
 

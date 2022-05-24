@@ -1,4 +1,7 @@
 from os import getenv
+import dotenv
+
+dotenv.load_dotenv(dotenv.find_dotenv())
 
 DEBUG = getenv('DEBUG', False)
 

@@ -25,18 +25,22 @@ def addUser(request):
 
 @api_view(['POST'])
 def loginUser(request):
-    email = request.data['email']
-    password = make_password(request.data['password'])
+    try:
+        email = request.data['email']
+        password = request.data['password']
 
-    if email and password:
-        try:
-            user = User.objects.get(email=email, password=password)
-            if(user):
-                return Response(data={'message': 'User successfully found.'}, status=200)
-        except User.DoesNotExist:
-            return Response(data={'message': 'User not found.'}, status=404)
+        if email and password:
+            try:
+                user = User.objects.get(email=email)
+                if user:
+                    if check_password(password, user.password):
+                        return Response({'user': user.id}, status=200)
+                    else:
+                        return Response({'error': 'Incorrect password'}, status=400)
+            except User.DoesNotExist:
+                return Response(data={'message': 'User not found.'}, status=404)
 
-    else:
+    except KeyError:
         return Response(
             data={'message': 'The fileds email and password are required'},
             status=400,

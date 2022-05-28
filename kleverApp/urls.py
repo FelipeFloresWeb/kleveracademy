@@ -5,7 +5,6 @@ app_name = 'kleverApp'
 
 urlpatterns = [
     path('user/', views.getUsers, name='listUsers'),
-    # path('user/<slug:slug>', views.getUserById, name='listUser'),
     path('user/add', views.addUser, name='addUser'),
-    # path('user/<slug:slug>/', views.UserDetailView.as_view(), name='detail'),
+    path('user/login', views.loginUser, name='loginUser'),
 ]

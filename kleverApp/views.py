@@ -32,9 +32,9 @@ def loginUser(request):
         try:
             user = User.objects.get(email=email, password=password)
             if(user):
-                return Response(data={'message': 'Usuário encontrado com sucesso.'}, status=200)
+                return Response(data={'message': 'User successfully found.'}, status=200)
         except User.DoesNotExist:
-            return Response(data={'message': 'Usuário não encontrado.'}, status=404)
+            return Response(data={'message': 'User not found.'}, status=404)
 
     else:
         return Response(

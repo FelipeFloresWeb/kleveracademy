@@ -26,7 +26,7 @@ def addUser(request):
 @api_view(['POST'])
 def loginUser(request):
     email = request.data['email']
-    password = request.data['password']
+    password = make_password(request.data['password'])
 
     if email and password:
         try:

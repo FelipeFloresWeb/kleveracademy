@@ -1,47 +1,57 @@
-from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import User
-from .serializers import UserSerializer
-from django.contrib.auth.hashers import make_password, check_password
-
-
-@api_view(['GET'])
-def getUsers():
-    users = User.objects.all()
-    serializer = UserSerializer(users, many=True)
-    return Response(serializer.data)
+from rest_framework.response import Response
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+from knox.auth import AuthToken
+from .serializers import RegisterSerializer
 
 
 @api_view(['POST'])
-def addUser(request):
-    request.data['password'] = make_password(request.data['password'])
+def add_user(request):
+    serializer = RegisterSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
 
-    serializer = UserSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=201)
-    return Response(serializer.errors, status=400)
+    user = serializer.save()
+    _, token = AuthToken.objects.create(user)
+    return Response({
+        'userInfo': {
+            'username': user.username,
+            'email': user.email,
+            'id': user.id,
+        },
+        'token': token
+    }, status=201)
 
 
 @api_view(['POST'])
-def loginUser(request):
-    try:
-        email = request.data['email']
-        password = request.data['password']
+def login_api(request):
+    serializer = AuthTokenSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        user = serializer.validated_data['user']
 
-        if email and password:
-            try:
-                user = User.objects.get(email=email)
-                if user:
-                    if check_password(password, user.password):
-                        return Response({'user': user.id}, status=200)
-                    else:
-                        return Response({'error': 'Incorrect password'}, status=400)
-            except User.DoesNotExist:
-                return Response(data={'message': 'User not found.'}, status=404)
+        _, token = AuthToken.objects.create(user)
+        return Response({
+            'userInfo': {
+                'username': user.username,
+                'email': user.email,
+                'id': user.id,
+            },
+            'token': token
+        }, status=200)
 
-    except KeyError:
-        return Response(
-            data={'message': 'The fileds email and password are required'},
-            status=400,
-        )
+# example of how to use the authentication_classes and permission_classes
+# @api_view(['POST'])
+# def example_view(request, ):
+#     user = request.user
+
+#     if(user.is_authenticated):
+#         return Response({
+#             'userInfo': {
+#                 'username': user.username,
+#                 'email': user.email,
+#                 'id': user.id,
+#             }}, status=200)
+
+#     return Response({
+#         'message': 'You are not authenticated'
+#     }, status=401)
+# Authorization: Token c7d58197d1f6bc6978218e33bcbcceaf632da436521b05b63d725ea7b01c2371

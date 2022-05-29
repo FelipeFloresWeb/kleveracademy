@@ -1,11 +1,11 @@
-from django.contrib import admin
+# from django.contrib import admin
 
-# Register your models here.
+# # Register your models here.
 
-from .models import User
+# from .models import User
 
 
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'last_name', 'email',
-                    'created_at', 'updated_at')
+# @admin.register(User)
+# class UserAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'name', 'last_name', 'email',
+#                     'created_at', 'updated_at')

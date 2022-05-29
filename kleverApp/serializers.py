@@ -6,22 +6,8 @@ class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'email', 'password', 'first_name', 'last_name')
-
-    extra_kwargs = {
-        'password': {
-            'write_only': True,
-        },
-        'email': {
-            'required': True,
-            'unique': True,
-            'allow_blank': False,
-            'validators': [
-                validators.UniqueValidator(
-                    User.objects.all(), 'A user with that email already exists.'
-                )
-            ]
-        }
-    }
+        extra_kwargs = {'password': {'write_only': True}, 'email': {
+            'required': True, 'validators': [validators.UniqueValidator(queryset=User.objects.all())], 'allow_blank': False}}
 
     def create(self, validated_data):
         username = validated_data['username']

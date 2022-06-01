@@ -49,7 +49,6 @@ def refresh_login(request):
             'userInfo': {
                 'firstName': user.first_name,
                 'lastName': user.last_name,
-                'username': user.username,
                 'email': user.email,
             },
             'token': token

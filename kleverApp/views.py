@@ -8,18 +8,17 @@ from .serializers import RegisterSerializer
 @api_view(['POST'])
 def add_user(request):
     serializer = RegisterSerializer(data=request.data)
-    serializer.is_valid(raise_exception=True)
-
-    user = serializer.save()
-    _, token = AuthToken.objects.create(user)
-    return Response({
-        'userInfo': {
-            'username': user.username,
-            'email': user.email,
-            'id': user.id,
-        },
-        'token': token
-    }, status=201)
+    if serializer.is_valid(raise_exception=True):
+        user = serializer.save()
+        _, token = AuthToken.objects.create(user)
+        return Response({
+            'userInfo': {
+                'username': user.username,
+                'email': user.email,
+                'id': user.id,
+            },
+            'token': token
+        }, status=201)
 
 
 @api_view(['POST'])

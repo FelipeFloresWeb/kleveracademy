@@ -13,9 +13,9 @@ def add_user(request):
         _, token = AuthToken.objects.create(user)
         return Response({
             'userInfo': {
-                'username': user.username,
+                'firstName': user.first_name,
+                'lastName': user.last_name,
                 'email': user.email,
-                'id': user.id,
             },
             'token': token
         }, status=201)
@@ -30,9 +30,9 @@ def login_api(request):
         _, token = AuthToken.objects.create(user)
         return Response({
             'userInfo': {
-                'username': user.username,
+                'firstName': user.first_name,
+                'lastName': user.last_name,
                 'email': user.email,
-                'id': user.id,
             },
             'token': token
         }, status=200)

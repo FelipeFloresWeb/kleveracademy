@@ -37,20 +37,24 @@ def login_api(request):
             'token': token
         }, status=200)
 
-# example of how to use the authentication_classes and permission_classes
-# @api_view(['POST'])
-# def example_view(request, ):
-#     user = request.user
 
-#     if(user.is_authenticated):
-#         return Response({
-#             'userInfo': {
-#                 'username': user.username,
-#                 'email': user.email,
-#                 'id': user.id,
-#             }}, status=200)
+@api_view(['POST'])
+def refresh_login(request):
+    user = request.user
 
-#     return Response({
-#         'message': 'You are not authenticated'
-#     }, status=401)
-# Authorization: Token c7d58197d1f6bc6978218e33bcbcceaf632da436521b05b63d725ea7b01c2371
+    if(user.is_authenticated):
+        _, token = AuthToken.objects.create(user)
+
+        return Response({
+            'userInfo': {
+                'firstName': user.first_name,
+                'lastName': user.last_name,
+                'username': user.username,
+                'email': user.email,
+            },
+            'token': token
+        }, status=200)
+
+    return Response({
+        'message': 'You are not authenticated'
+    }, status=401)

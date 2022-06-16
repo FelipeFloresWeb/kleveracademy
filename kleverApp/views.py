@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.auth import AuthToken
 
+from kleverApp.models import Videos
+
 from .serializers import RegisterSerializer, VideosSerializer
 
 
@@ -61,5 +63,6 @@ def refresh_login(request):
 
 @api_view(['POST'])
 def get_all_videos(request):
-    serializer = VideosSerializer(many=True)
+    videos = Videos.objects.all()
+    serializer = VideosSerializer(videos, many=True)
     return Response(serializer.data)

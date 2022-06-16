@@ -10,4 +10,5 @@ urlpatterns = [
     path('user/refresh-login', views.refresh_login, name='refresh-login_api'),
     path('user/logout', knox_views.LogoutView.as_view(), name='logout'),
     path('user/logoutall', knox_views.LogoutAllView.as_view(), name='logoutall'),
+    path('user/videos', views.get_all_videos, name='get_all_videos'),
 ]

@@ -2,7 +2,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.auth import AuthToken
-from .serializers import RegisterSerializer
+
+from .serializers import RegisterSerializer, VideosSerializer
 
 
 @api_view(['POST'])
@@ -57,3 +58,8 @@ def refresh_login(request):
     return Response({
         'message': 'You are not authenticated'
     }, status=401)
+
+@api_view(['POST'])
+def get_all_videos(request):
+    serializer = VideosSerializer(many=True)
+    return Response(serializer.data)

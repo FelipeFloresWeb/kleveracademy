@@ -1,11 +1,7 @@
-# from django.contrib import admin
-
-# # Register your models here.
-
-# from .models import User
+from django.contrib import admin
+from .models import Videos
 
 
-# @admin.register(User)
-# class UserAdmin(admin.ModelAdmin):
-#     list_display = ('id', 'name', 'last_name', 'email',
-#                     'created_at', 'updated_at')
+@admin.register(Videos)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'video_url', 'thumbnail_url', 'rate', 'likes', 'created_at', 'updated_at')

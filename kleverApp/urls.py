@@ -11,4 +11,7 @@ urlpatterns = [
     path('user/logout', knox_views.LogoutView.as_view(), name='logout'),
     path('user/logoutall', knox_views.LogoutAllView.as_view(), name='logoutall'),
     path('user/videos', views.get_all_videos, name='get_all_videos'),
+    path('user/favorite-videos', views.get_all_user_favorite_videos, name='get_all_user_favorite_videos'),
+    path('user/add-favorite-video', views.add_favorite_Video, name='add_favorite_Video'),
+    path('user/remove-favorite-video', views.remove_favorite_Video, name='remove_favorite_Video'),
 ]

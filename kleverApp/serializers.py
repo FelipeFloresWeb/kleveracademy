@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers, validators
 from django.contrib.auth.hashers import make_password
 
-from kleverApp.models import Videos
+from kleverApp.models import Videos, FavoriteVideo
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -26,4 +26,13 @@ class RegisterSerializer(serializers.ModelSerializer):
 class VideosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Videos
-        fields = ('title', 'description', 'video_url', 'thumbnail_url', 'rate', 'likes', 'created_at', 'updated_at')
+        fields = ('id','title', 'description', 'video_url', 'thumbnail_url', 'rate', 'likes', 'created_at', 'updated_at')
+
+class FavoriteVideoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FavoriteVideo
+        fields = ('user', 'video')
+
+
+
+

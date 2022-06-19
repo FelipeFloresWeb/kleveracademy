@@ -30,3 +30,10 @@ class RateVideo(models.Model):
 
     def __str__(self):
         return self.user.username + ' - ' + self.video.title
+
+class LikeVideo(models.Model):
+    user = models.ForeignKey('auth.User', related_name='likes_videos', on_delete=models.CASCADE)
+    video = models.ForeignKey(Videos,  related_name='likes_videos', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username + ' - ' + self.video.title

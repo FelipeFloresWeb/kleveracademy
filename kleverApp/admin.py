@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import RateVideo, Videos, FavoriteVideo
+from .models import LikeVideo, RateVideo, Videos, FavoriteVideo
 
 
 @admin.register(Videos)
@@ -13,3 +13,7 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(RateVideo)
 class UserAdmin(admin.ModelAdmin):
     list_display = ('user', 'video', 'rate')
+
+@admin.register(LikeVideo)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'video')

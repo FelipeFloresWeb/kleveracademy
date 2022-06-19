@@ -15,4 +15,6 @@ urlpatterns = [
     path('user/add-favorite-video', videos.add_favorite_Video, name='add_favorite_Video'),
     path('user/remove-favorite-video', videos.remove_favorite_Video, name='remove_favorite_Video'),
     path('user/add-video-rate', videos.add_video_rate, name='add_video_rate'),
+    path('user/add-like-video', videos.add_video_like, name='add_like_video'),
+    path('user/remove-like-video', videos.remove_video_like, name='remove_video_like'),
 ]

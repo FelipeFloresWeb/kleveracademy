@@ -1,65 +1,9 @@
 from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework.authtoken.serializers import AuthTokenSerializer
-from knox.auth import AuthToken
-
 from kleverApp.models import Videos, FavoriteVideo
-
-from .serializers import FavoriteVideoSerializer, RegisterSerializer, VideosSerializer
-
-
-@api_view(['POST'])
-def add_user(request):
-    serializer = RegisterSerializer(data=request.data)
-    if serializer.is_valid(raise_exception=True):
-        user = serializer.save()
-        _, token = AuthToken.objects.create(user)
-        return Response({
-            'userInfo': {
-                'firstName': user.first_name,
-                'lastName': user.last_name,
-                'email': user.email,
-            },
-            'token': token
-        }, status=201)
+from kleverApp.serializers import FavoriteVideoSerializer, VideosSerializer
+from rest_framework.response import Response
 
 
-@api_view(['POST'])
-def login_api(request):
-    serializer = AuthTokenSerializer(data=request.data)
-    if serializer.is_valid(raise_exception=True):
-        user = serializer.validated_data['user']
-
-        _, token = AuthToken.objects.create(user)
-        return Response({
-            'userInfo': {
-                'firstName': user.first_name,
-                'lastName': user.last_name,
-                'email': user.email,
-            },
-            'token': token
-        }, status=200)
-
-
-@api_view(['POST'])
-def refresh_login(request):
-    user = request.user
-
-    if(user.is_authenticated):
-        _, token = AuthToken.objects.create(user)
-
-        return Response({
-            'userInfo': {
-                'firstName': user.first_name,
-                'lastName': user.last_name,
-                'email': user.email,
-            },
-            'token': token
-        }, status=200)
-
-    return Response({
-        'message': 'You are not authenticated'
-    }, status=401)
 
 @api_view(['POST'])
 def get_all_videos(request):
@@ -118,3 +62,26 @@ def remove_favorite_Video(request):
 
         return Response({"Status": "ok", "videoRemoved": video_id}, status=200)
 
+
+@api_view(['POST'])
+def add_video_rate(request):
+    user = request.user
+
+    if(user.is_authenticated):
+        video_id = request.data['video_id']
+        rate = request.data['rate']
+        video = Videos.objects.get(id=video_id)
+
+        video.rate_length += 1
+        video.rate = video.rate + rate
+        calc = format(video.rate / video.rate_length, '.2f')
+        video.rate_calc = calc
+
+        print(f"video.rate_length: {video.rate_length}\nvideo.rate: {calc}")
+        video.save()
+
+        return Response({"Status": "ok", "videoRated": video_id, "newRate": calc }, status=200)
+
+    return Response({
+        'message': 'You are not authenticated'
+    }, status=401)

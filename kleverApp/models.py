@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 
 
@@ -37,3 +38,15 @@ class LikeVideo(models.Model):
 
     def __str__(self):
         return self.user.username + ' - ' + self.video.title
+
+class Article(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    title = models.CharField(max_length=255)
+    text = models.TextField(blank=True)
+    font = models.CharField(max_length=255, blank=True)
+    added_date = models.DateTimeField(default=datetime.now, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

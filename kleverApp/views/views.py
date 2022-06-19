@@ -3,9 +3,9 @@ from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.auth import AuthToken
 
-from kleverApp.models import Videos, FavoriteVideo
+from kleverApp.models import Article
 
-from ..serializers import FavoriteVideoSerializer, RegisterSerializer, VideosSerializer
+from ..serializers import ArticleSerializer, RegisterSerializer
 
 
 @api_view(['POST'])
@@ -61,3 +61,9 @@ def refresh_login(request):
         'message': 'You are not authenticated'
     }, status=401)
 
+
+@api_view(['POST'])
+def get_all_articles(request):
+    articles = Article.objects.all()
+    serializer = ArticleSerializer(articles, many=True)
+    return Response(serializer.data)

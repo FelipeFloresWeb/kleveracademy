@@ -38,12 +38,17 @@ def add_favorite_Video(request):
     if(user.is_authenticated):
         video_id = request.data['video_id']
         video = Videos.objects.get(id=video_id)
-
-        favorite_video = FavoriteVideo.objects.create(user=user, video=video)
-        serializer = FavoriteVideoSerializer(favorite_video)
-        if serializer.is_valid(raise_exception=True):
-            return Response({"Status": "ok", "videoAdded": serializer.data}, status=201)
-
+        exists = FavoriteVideo.objects.filter(user=user, video=video).exists()
+        if not exists:
+            favorite_video = FavoriteVideo(user=user, video=video)
+            favorite_video.save()
+            return Response({
+                'message': 'Video added to favorites'
+            }, status=200)
+        else:
+            return Response({
+                'message': 'Video already in favorites'
+            }, status=200)
     return Response({
         'message': 'You are not authenticated'
     }, status=401)

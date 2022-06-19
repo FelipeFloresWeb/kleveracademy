@@ -1,5 +1,5 @@
 from rest_framework.decorators import api_view
-from kleverApp.models import RateVideo, Videos, FavoriteVideo
+from kleverApp.models import LikeVideo, RateVideo, Videos, FavoriteVideo
 from kleverApp.serializers import FavoriteVideoSerializer, VideosSerializer
 from rest_framework.response import Response
 
@@ -89,6 +89,48 @@ def add_video_rate(request):
             return Response({
                 'message': 'Video rate already added'
             }, status=409)
+
+    return Response({
+        'message': 'You are not authenticated'
+    }, status=401)
+
+@api_view(['POST'])
+def add_video_like(request):
+    user = request.user
+
+    if(user.is_authenticated):
+        video_id = request.data['video_id']
+        video = Videos.objects.get(id=video_id)
+        exists = LikeVideo.objects.filter(user=user, video=video).exists()
+        if not exists:
+            like_video = LikeVideo(user=user, video=video)
+            video.likes += 1
+            like_video.save()
+            video.save()
+            return Response({
+                'message': 'Video like added'
+            }, status=200)
+        else:
+            return Response({
+                'message': 'Video like already added'
+            }, status=409)
+
+    return Response({
+        'message': 'You are not authenticated'
+    }, status=401)
+
+@api_view(['POST'])
+def remove_video_like(request):
+    user = request.user
+
+    if(user.is_authenticated):
+        video_id = request.data['video_id']
+        video = Videos.objects.get(id=video_id)
+        like_video = LikeVideo.objects.get(user=user, video=video)
+        like_video.delete()
+        video.likes -= 1
+        video.save()
+        return Response({"Status": "ok", "videoRemoved": video_id}, status=200)
 
     return Response({
         'message': 'You are not authenticated'

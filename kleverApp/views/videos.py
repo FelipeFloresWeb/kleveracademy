@@ -1,8 +1,7 @@
 from rest_framework.decorators import api_view
-from kleverApp.models import Videos, FavoriteVideo
+from kleverApp.models import RateVideo, Videos, FavoriteVideo
 from kleverApp.serializers import FavoriteVideoSerializer, VideosSerializer
 from rest_framework.response import Response
-
 
 
 @api_view(['POST'])
@@ -76,16 +75,20 @@ def add_video_rate(request):
         video_id = request.data['video_id']
         rate = request.data['rate']
         video = Videos.objects.get(id=video_id)
-
-        video.rate_length += 1
-        video.rate = video.rate + rate
-        calc = format(video.rate / video.rate_length, '.2f')
-        video.rate_calc = calc
-
-        print(f"video.rate_length: {video.rate_length}\nvideo.rate: {calc}")
-        video.save()
-
-        return Response({"Status": "ok", "videoRated": video_id, "newRate": calc }, status=200)
+        exists = RateVideo.objects.filter(user=user, video=video).exists()
+        if not exists:
+            video_rate_length = RateVideo.objects.filter(video=video).count()
+            video.rate = (video.rate + rate) / (video_rate_length + 1)
+            rate_video = RateVideo(user=user, video=video, rate=rate)
+            rate_video.save()
+            video.save()
+            return Response({
+                'message': 'Video rate added'
+            }, status=200)
+        else:
+            return Response({
+                'message': 'Video rate already added'
+            }, status=409)
 
     return Response({
         'message': 'You are not authenticated'

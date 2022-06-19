@@ -32,7 +32,3 @@ class FavoriteVideoSerializer(serializers.ModelSerializer):
     class Meta:
         model = FavoriteVideo
         fields = ('user', 'video')
-
-
-
-

@@ -4,13 +4,13 @@ from kleverApp.serializers import FavoriteVideoSerializer, VideosSerializer
 from rest_framework.response import Response
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 def get_all_videos(request):
     videos = Videos.objects.all()
     serializer = VideosSerializer(videos, many=True)
     return Response(serializer.data)
 
-@api_view(['POST'])
+@api_view(['GET'])
 def get_all_user_favorite_videos(request):
     user = request.user
 

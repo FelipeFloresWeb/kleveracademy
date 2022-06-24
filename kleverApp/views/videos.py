@@ -135,3 +135,9 @@ def remove_video_like(request):
     return Response({
         'message': 'You are not authenticated'
     }, status=401)
+
+@api_view(['GET'])
+def get_video_by_id(request, video_id):
+    video = Videos.objects.get(id=video_id)
+    serializer = VideosSerializer(video)
+    return Response(serializer.data)

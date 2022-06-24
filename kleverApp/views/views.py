@@ -62,7 +62,7 @@ def refresh_login(request):
     }, status=401)
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 def get_all_articles(request):
     articles = Article.objects.all()
     serializer = ArticleSerializer(articles, many=True)

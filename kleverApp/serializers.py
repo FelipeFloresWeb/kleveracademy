@@ -26,7 +26,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class VideosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Videos
-        fields = ('id','title', 'description', 'video_url', 'thumbnail_url', 'rate', 'likes', 'created_at', 'updated_at')
+        fields = ('id','title', 'description', 'video_url', 'thumbnail_url', 'isFeatured', 'published_at', 'rate', 'likes', 'created_at', 'updated_at')
 
 class FavoriteVideoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -36,4 +36,4 @@ class FavoriteVideoSerializer(serializers.ModelSerializer):
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ('id', 'title', 'text', 'font', 'added_date', 'created_at', 'updated_at')
+        fields = ('id', 'title', 'text', 'font', 'published_at', 'thumbnail_url', 'isFeatured', 'created_at', 'updated_at')

@@ -7,9 +7,11 @@ class Videos(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     video_url = models.CharField(max_length=200)
-    thumbnail_url = models.CharField(max_length=200)
+    thumbnail_url = models.CharField(max_length=255)
+    isFeatured = models.BooleanField(default=False)
     likes = models.IntegerField(default=0)
     rate = models.FloatField(default=0)
+    published_at = models.DateTimeField(default=datetime.now, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -42,9 +44,11 @@ class LikeVideo(models.Model):
 class Article(models.Model):
     id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=255)
+    thumbnail_url = models.CharField(max_length=255, blank=True)
+    isFeatured = models.BooleanField(default=False)
     text = models.TextField(blank=True)
     font = models.CharField(max_length=255, blank=True)
-    added_date = models.DateTimeField(default=datetime.now, blank=True)
+    published_at = models.DateTimeField(default=datetime.now, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

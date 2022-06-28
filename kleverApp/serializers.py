@@ -36,4 +36,4 @@ class FavoriteVideoSerializer(serializers.ModelSerializer):
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ('id', 'title', 'text', 'font', 'published_at', 'thumbnail_url', 'isFeatured', 'created_at', 'updated_at')
+        fields = ('id', 'title', 'text', 'font', 'published_at', 'read_time', 'description', 'thumbnail_url', 'isFeatured', 'created_at', 'updated_at')

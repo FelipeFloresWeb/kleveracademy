@@ -48,6 +48,8 @@ class Article(models.Model):
     isFeatured = models.BooleanField(default=False)
     text = models.TextField(blank=True)
     font = models.CharField(max_length=255, blank=True)
+    read_time = models.CharField(max_length=255, blank=True)
+    description = models.TextField(blank=True)
     published_at = models.DateTimeField(default=datetime.now, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

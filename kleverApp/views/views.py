@@ -67,3 +67,9 @@ def get_all_articles(request):
     articles = Article.objects.all()
     serializer = ArticleSerializer(articles, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def get_article_by_id(request, article_id):
+    article = Article.objects.get(id=article_id)
+    serializer = ArticleSerializer(article)
+    return Response(serializer.data)

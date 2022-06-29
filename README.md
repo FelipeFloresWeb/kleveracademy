@@ -117,26 +117,49 @@ This is an example of how to list things you need to use the software and how to
 ### Installation
 
 1. Clone the repo
-   ```sh
-   git clone git@github.com:FelipeFloresWeb/kleveracademy.git
-   ```
+ ```sh
+ git clone git@github.com:FelipeFloresWeb/kleveracademy.git
+ ```
 
-2 Access project folder
-   ```sh
-   cd kleveracademy
-   ```
+2. Access project folder
+ ```sh
+ cd kleveracademy
+ ```
 
 3. Create and activate the virtual development environment
-   ```sh
-   python -m venv venv.
-   .\venv\Scripts\activate 
-   ```
+ ```sh
+ python -m venv venv.
+ .\venv\Scripts\activate 
+ ```
 
  4. Install the project's development dependencies
-   ```sh
-   pip install -r requirements.txt
-   ```
-
+ ```sh
+ pip install -r requirements.txt
+ ```
+ 
+ 5. Create an '.env' file and add the necessary information for connecting to your Postgresql database:
+ ```sh
+ SECRET_KEY='(Your Choose)'
+ NAME="For Connection DB"
+ USER="For Connection DB"
+ PASSWORD="For Connection DB"
+ HOST=""
+ PORT=""
+ DEBUG=("TRUE" or "FALSE")
+ ```
+ 
+ 6. Run migrations
+ ```sh
+ py .\manage.py migrate kleverApp
+ ```
+ 
+ 6. Rode o servidor
+ ```sh
+ py .\manage.py runserver
+ ```
+   
+### If you have docker installed just run the commands inside 'commands.txt
+ 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

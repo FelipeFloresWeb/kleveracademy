@@ -17,7 +17,7 @@ urlpatterns = [
     path('user/add-video-rate', videos.add_video_rate, name='add_video_rate'),
     path('user/add-like-video', videos.add_video_like, name='add_like_video'),
     path('user/remove-like-video', videos.remove_video_like, name='remove_video_like'),
-    path('get-all-articles', views.get_all_articles, name='get_all_articles'),
+    path('articles', views.get_all_articles, name='articles'),
     path('videos/<int:video_id>', videos.get_video_by_id, name='get_video'),
     path('articles/<int:article_id>', views.get_article_by_id, name='get_article'),
 ]

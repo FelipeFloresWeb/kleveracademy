@@ -96,8 +96,6 @@ Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -153,12 +151,13 @@ This is an example of how to list things you need to use the software and how to
  py .\manage.py migrate kleverApp
  ```
  
- 6. Rode o servidor
+ 6. Start the server
  ```sh
  py .\manage.py runserver
  ```
    
-### If you have docker installed just run the commands inside 'commands.txt
+# ❗❗❗ Attention ❗❗❗
+###  If you have docker installed just run the commands inside 'commands.txt' 🙂👍
  
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -167,11 +166,26 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+Endpoints list:
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+ ```sh
+POST user/add
+POST user/login
+POST user/refresh-login
+user/logout
+user/logoutall
+videos
+user/favorite-videos
+user/add-favorite-video
+user/remove-favorite-video
+user/add-video-rate
+user/add-like-vide
+user/remove-like-video
+GET articles
+videos/int:video_id
+GET articles/int:article_id
+ ```
+ 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 

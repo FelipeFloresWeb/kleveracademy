@@ -109,6 +109,7 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 
 * [Python](https://www.python.org/downloads/)
+* [Postgresql](https://www.postgresql.org/)
 <p>You can also run this project through Docker</p>
 
 * [Docker](https://www.docker.com/)
@@ -117,16 +118,25 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git@github.com:FelipeFloresWeb/kleveracademy.git
+   git clone git@github.com:FelipeFloresWeb/kleveracademy.git
    ```
+
 2 Access project folder
    ```sh
    cd kleveracademy
    ```
-3. Activate virtual environment
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+
+3. Create and activate the virtual development environment
+   ```sh
+   python -m venv venv.
+   .\venv\Scripts\activate 
    ```
+
+ 4. Install the project's development dependencies
+   ```sh
+   pip install -r requirements.txt
+   ```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

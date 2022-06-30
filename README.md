@@ -69,8 +69,8 @@ Nowadays we come across many people who have "fear" or "aversion" to work with c
 
 ### Built With
 
-* [Next.js](https://nextjs.org/) (Front End)
-* [Django](https://www.django-rest-framework.org/) (Back End)
+* [Next.js](https://nextjs.org/) (Front End: https://github.com/brunogcpinheiro/klever-academy)
+* [Django](https://www.django-rest-framework.org/) (Back End: This repository)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

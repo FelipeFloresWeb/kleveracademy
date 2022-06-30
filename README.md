@@ -59,6 +59,7 @@ Nowadays we come across many people with 'fear' or 'lack of knowledge' to work w
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#admin">Admin</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>

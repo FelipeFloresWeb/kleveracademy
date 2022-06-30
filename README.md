@@ -37,7 +37,7 @@
 ## About The Project
 
 
-Nowadays we come across many people with 'fear' or 'lack of knowledge' to work with cryptocurrencies precisely because of this lack of knowledge. For this reason we thought of making a site where the user will be able to study and learn about the subject and thus be able to enter this new world...
+Nowadays we come across many people who have "fear" or "aversion" to work with cryptocurrencies often this is due to lack of knowledge. For this reason, we thought of making a site where the user can study and learn about the subject and thus be able to enter this new world...
 
 
 <!-- TABLE OF CONTENTS -->

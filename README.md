@@ -42,6 +42,7 @@ Nowadays we come across many people who have "fear" or "aversion" to work with c
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#docker">Docker</a></li>
         <li><a href="#admin">Admin</a></li>
       </ul>
     </li>

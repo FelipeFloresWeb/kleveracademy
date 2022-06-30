@@ -25,15 +25,9 @@
 
 
   <p align="center">
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://klever-academy.netlify.app/">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/FelipeFloresWeb/kleveracademy/issues">Report Bug</a>
   </p>
 </div>
 
@@ -67,23 +61,10 @@ Nowadays we come across many people with 'fear' or 'lack of knowledge' to work w
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -162,20 +143,6 @@ This is an example of how to list things you need to use the software and how to
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-Endpoints list:
-
- ```sh
-
- ```
- 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -218,15 +185,5 @@ Don't forget to give the project a star! Thanks again!
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- CONTACT -->
-## Contact
-
-Felipe Flores - [@FelipeF07532813](https://twitter.com/FelipeF07532813)
-[LinkEdin](https://www.linkedin.com/in/felipe-flores-dev/)
-![kleverAcademyBanner](https://user-images.githubusercontent.com/78596051/176568353-937f35a9-174f-4dc7-af1e-8e35e64285ff.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

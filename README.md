@@ -33,10 +33,6 @@
 
 
 
-
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -173,7 +169,7 @@ For Articles:
 - [x] Catch all
 - [x] Get by id
 
-Comming Soon:
+## :hourglass: Comming Soon :hourglass::
 - [ ] Courses
 - [ ] User Level
 - [ ] User Points

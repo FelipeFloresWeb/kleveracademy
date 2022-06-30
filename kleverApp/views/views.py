@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.auth import AuthToken
 
-from kleverApp.models import Article
+from kleverApp.models import Article, RateVideo
 
 from ..serializers import ArticleSerializer, RegisterSerializer
 
@@ -48,11 +48,17 @@ def refresh_login(request):
     if(user.is_authenticated):
         _, token = AuthToken.objects.create(user)
 
+        userRateVideos = RateVideo.objects.filter(user=user)
+        rateVideos = []
+        for video in userRateVideos:
+            rateVideos.append({video.video.id: video.rate})
+
         return Response({
             'userInfo': {
                 'firstName': user.first_name,
                 'lastName': user.last_name,
                 'email': user.email,
+                'rateVideos': rateVideos
             },
             'token': token
         }, status=200)

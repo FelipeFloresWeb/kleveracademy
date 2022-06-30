@@ -161,6 +161,7 @@ User-Related Actions:
 For Vídeos:
 - [x] Catch all
 - [x] Get by id
+- [x] Add favorite
 - [x] Remove from favorites
 - [x] Grab all favorites
 - [x] Rate

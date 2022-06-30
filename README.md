@@ -169,21 +169,7 @@ This is an example of how to list things you need to use the software and how to
 Endpoints list:
 
  ```sh
-POST user/add
-POST user/login
-POST user/refresh-login
-user/logout
-user/logoutall
-videos
-user/favorite-videos
-user/add-favorite-video
-user/remove-favorite-video
-user/add-video-rate
-user/add-like-vide
-user/remove-like-video
-GET articles
-videos/int:video_id
-GET articles/int:article_id
+
  ```
  
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -193,15 +179,27 @@ GET articles/int:article_id
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+User-Related Actions:
+- [x] Create
+- [x] Authentication
+- [x] Log in
+- [x] Log out
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+For Vídeos:
+- [x] Catch all
+- [x] Get by id
+- [x] Remove from favorites
+- [x] Grab all favorites
+- [x] Rate
+
+For Articles:
+- [x] Catch all
+- [x] Get by id
+
+Comming Soon:
+- [ ] Courses
+- [ ] User Level
+- [ ] User Points
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

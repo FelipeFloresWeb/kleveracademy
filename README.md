@@ -69,8 +69,8 @@ Nowadays we come across many people with 'fear' or 'lack of knowledge' to work w
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [Django](https://www.django-rest-framework.org/)
+* [Next.js](https://nextjs.org/) (Front End)
+* [Django](https://www.django-rest-framework.org/) (Back End)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

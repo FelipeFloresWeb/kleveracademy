@@ -129,12 +129,12 @@ This is an example of how to list things you need to use the software and how to
  
  6. Run migrations
  ```sh
- py .\manage.py migrate kleverApp
+ python .\manage.py migrate kleverApp
  ```
  
  6. Start the server
  ```sh
- py .\manage.py runserver
+ python .\manage.py runserver
  ```
    
 # ❗❗❗ Attention ❗❗❗
@@ -142,6 +142,15 @@ This is an example of how to list things you need to use the software and how to
  
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ADMIN -->
+## Admin
+To access the application's administration system, simply access the '/admin' route.
+To gain access to the system you need to create a super user with the following command:
+
+ ```sh
+py manage.py createsuperuser
+ ```
 
 <!-- ROADMAP -->
 ## Roadmap

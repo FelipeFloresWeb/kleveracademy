@@ -121,9 +121,11 @@ This is an example of how to list things you need to use the software and how to
  python .\manage.py runserver
  ```
    
-# ❗❗❗ Attention ❗❗❗
-###  If you have docker installed just run the commands inside 'commands.txt' 🙂👍
- 
+# ❗❗❗ DOCKER ❗❗❗
+###  To run the application via Docker just run the commands inside 'commands.txt' ou run de command:
+ ```sh
+ docker compose up 
+ ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
